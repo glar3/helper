@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Tuner Wiki</title>
+    <!-- Tailwind CSS for elegant styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Google Fonts: Inter and JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        dark: '#0f172a',
+                        card: '#1e293b',
+                        accent: '#6366f1',
+                        accentHover: '#4f46e5',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569; 
+        }
+
+        /* Hover Copy Effect */
+        .copy-trigger {
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        .copy-trigger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-color: #6366f1;
+        }
+        .copy-trigger:active {
+            transform: translateY(0);
+        }
+
+        /* Toast Notification */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #6366f1;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px;
+            position: fixed;
+            z-index: 50;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 17px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+        }
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 50px;
+        }
+    </style>
+</head>
+<body class="bg-dark text-slate-300 antialiased selection:bg-accent selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-40 w-full backdrop-blur-md bg-dark/80 border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <i class="ph-fill ph-car-profile text-accent text-2xl mr-2"></i>
+                    <span class="font-bold text-xl text-white tracking-tight">Street Wiki</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#codes" class="hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Codes</a>
+                        <a href="#tuning" class="hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Tuning</a>
+                        <a href="#cars" class="hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Car List</a>
+                        <a href="#guides" class="hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Guides</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+
+        <!-- Header / Intro -->
+        <div class="text-center space-y-4">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+                The Ultimate <span class="text-accent">Tuning</span> Database
+            </h1>
+            <p class="text-lg text-slate-400 max-w-2xl mx-auto">
+                All the meta builds, codes, and drop rates in one place. <br>
+                <span class="text-sm text-slate-500 bg-slate-800 px-2 py-1 rounded mt-2 inline-block">
+                    <i class="ph-bold ph-cursor-click mr-1"></i> Click any card or row to copy info!
+                </span>
+            </p>
+        </div>
+
+        <!-- Section: Codes -->
+        <section id="codes" class="scroll-mt-20">
+            <div class="flex items-center mb-6">
+                <i class="ph-duotone ph-ticket text-accent text-3xl mr-3"></i>
+                <h2 class="text-2xl font-bold text-white">Active Codes</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Code Card 1 -->
+                <div class="copy-trigger bg-card border border-slate-700 p-6 rounded-xl flex flex-col items-center justify-center text-center group" onclick="copyText('RENASCAPTURADO')">
+                    <span class="text-slate-400 text-xs uppercase tracking-wider mb-1">Code</span>
+                    <code class="text-xl font-bold text-white font-mono bg-slate-800 px-2 py-1 rounded group-hover:bg-slate-700 transition-colors">RENASCAPTURADO</code>
+                    <span class="text-emerald-400 text-sm mt-2 font-medium">€5,000 Reward</span>
+                    <div class="absolute top-2 right-2 text-slate-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="ph-bold ph-copy"></i>
+                    </div>
+                </div>
+                <!-- Code Card 2 -->
+                <div class="copy-trigger bg-card border border-slate-700 p-6 rounded-xl flex flex-col items-center justify-center text-center group" onclick="copyText('WATERLAVA')">
+                    <span class="text-slate-400 text-xs uppercase tracking-wider mb-1">Code</span>
+                    <code class="text-xl font-bold text-white font-mono bg-slate-800 px-2 py-1 rounded group-hover:bg-slate-700 transition-colors">WATERLAVA</code>
+                    <span class="text-emerald-400 text-sm mt-2 font-medium">€5,000 Reward</span>
+                    <div class="absolute top-2 right-2 text-slate-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="ph-bold ph-copy"></i>
+                    </div>
+                </div>
+                <!-- Code Card 3 -->
+                <div class="copy-trigger bg-card border border-slate-700 p-6 rounded-xl flex flex-col items-center justify-center text-center group" onclick="copyText('SAUSAGE')">
+                    <span class="text-slate-400 text-xs uppercase tracking-wider mb-1">Code</span>
+                    <code class="text-xl font-bold text-white font-mono bg-slate-800 px-2 py-1 rounded group-hover:bg-slate-700 transition-colors">SAUSAGE</code>
+                    <span class="text-emerald-400 text-sm mt-2 font-medium">€5,000 Reward</span>
+                    <div class="absolute top-2 right-2 text-slate-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <i class="ph-bold ph-copy"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Tuning Table -->
+        <section id="tuning" class="scroll-mt-20">
+            <div class="flex items-center mb-4">
+                <i class="ph-duotone ph-engine text-accent text-3xl mr-3"></i>
+                <h2 class="text-2xl font-bold text-white">Engine Remaps</h2>
+            </div>
+            
+            <!-- Warning Alert -->
+            <div class="bg-red-900/20 border-l-4 border-red-500 p-4 mb-6 rounded-r-lg">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <i class="ph-fill ph-warning-circle text-red-400 text-xl"></i>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm text-red-200">
+                            <span class="font-bold">Important Glitch Warning:</span> Remaps revert to stock performance if you reset, rejoin, or move the car in/out of the garage. The dyno will still display the tuned HP, but the car is actually stock! Remap is based on Engines, not cars.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto rounded-xl border border-slate-700 shadow-lg">
+                <table class="w-full text-left text-sm text-slate-400">
+                    <thead class="bg-slate-800 text-slate-200 uppercase font-bold text-xs">
+                        <tr>
+                            <th class="px-6 py-4">Engine</th>
+                            <th class="px-4 py-4 text-center">Limit</th>
+                            <th class="px-4 py-4 text-center">Boost</th>
+                            <th class="px-4 py-4 text-center">Ignition</th>
+                            <th class="px-4 py-4 text-center">Fuel</th>
+                            <th class="px-4 py-4 text-center">Valve</th>
+                            <th class="px-6 py-4 text-right text-accent">Total HP</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-700 bg-card">
+                        <!-- Row Generator Script will go here, or manual for precision -->
+                        <tr class="copy-trigger hover:bg-slate-700/50" onclick="copyText('i5 2.5 Petrol Build: 35 Limit, 64 Boost, 50 Ign, 50 Fuel, 50 Valve -> 600 HP')">
+                            <td class="px-6 py-4 font-medium text-white">i5 2.5 Petrol</td>
+                            <td class="px-4 py-4 text-center">35</td>
+                            <td class="px-4 py-4 text-center">64</td>
+                            <td class="px-4 py-4 text-center">50</td>
+                            <td class="px-4 py-4 text-center">50</td>
+                            <td class="px-4 py-4 text-center">50</td>
+                            <td class="px-6 py-4 text-right font-bold text-white">600 HP</td>
+                        </tr>
+                        <tr class="copy-trigger hover:bg-slate-700/50" onclick="copyText('V8 4.0 Petrol Build: 35 Limit, 62 Boost, 50 Ign, 50 Fuel, 50 Valve -> 1350 HP')">
+                            <td class="px-6 py-4 font-medium text-white">V8 4.0 Petrol</td>
+                            <td class="px-4 py-4 text-center">35</td>
+                            <td class="px-4 py-4 text-center">62</td>
+                            <td class="px-4 py-4 text-center">50</td>
+                            <td class="px-4 py-4 text-center">50</td>
+                            <td class="px-4 py-4 text-center">50</td>
+                            <td class="px-6 py-4 text-right font-bold text-white">1350 HP</td>
+                        </tr>
+                        <tr class="copy-trigger hover:bg-slate-700/50" onclick="copyText('i6 3.0 Petrol Build: 40 Limit, 60 Boost, 40 Ign, 45 Fuel, 30 Valve -> 570 HP')">
+                            <td class="px-6 py-4 font-medium text-white">i6 3.0 Petrol</td>
+                            <td class="px-4 py-4 text-center">40</td>
+                            <td class="px-4 py-4 text-center">60</td>
+                            <td class="px-4 py-4 text-center">40</td>
+                            <td class="px-4 py-4 text-center">45</td>
+                            <td class="px-4 py-4 text-center">30</td>
+                            <td class="px-6 py-4 text-right font-bold text-white">570 HP</td>
+                        </tr>
+                        <tr class="copy-trigger hover:bg-slate-700/50" onclick="copyText('i4 2.0 Petrol Build: 35 Limit, 50 Boost, 0 Ign, 0 Fuel, 100 Valve -> 345 HP')">
+                            <td class="px-6 py-4 font-medium text-white">i4 2.0 Petrol</td>
+                            <td class="px-4 py-4 text-center">35</td>
+                            <td class="px-4 py-4 text-center">50</td>
+                            <td class="px-4 py-4 text-center">0</td>
+                            <td class="px-4 py-4 text-center">0</td>
+                            <td class="px-4 py-4 text-center">100</td>
+                            <td class="px-6 py-4 text-right font-bold text-white">345 HP</td>
+                        </tr>
+                        <tr class="copy-trigger hover:bg-slate-700/50" onclick="copyText('i4 1.9 Diesel Build: 35 Limit, 50 Boost, 20 Ign, 70 Fuel, 100 Valve -> 195 HP')">
+                            <td class="px-6 py-4 font-medium text-white">i4 1.9 Diesel</td>
+                            <td class="px-4 py-4 text-center">35</td>
+                            <td class="px-4 py-4 text-center">50</td>
+                            <td class="px-4 py-4 text-center">20</td>
+                            <td class="px-4 py-4 text-center">70</td>
+                            <td class="px-4 py-4 text-center">100</td>
+                            <td class="px-6 py-4 text-right font-bold text-white">195 HP</td>
+                        </tr>
+                        <tr class="copy-trigger hover:bg-slate-700/50" onclick="copyText('1.3 Rot Petrol Build: 35 Limit, 64 Boost, 50 Ign, 50 Fuel, 50 Valve -> 420 HP')">
+                            <td class="px-6 py-4 font-medium text-white">1.3 Rot Petrol</td>
+                            <td class="px-4 py-4 text-center">35</td>
+                            <td class="px-4 py-4 text-center">64</td>
+                            <td class="px-4 py-4 text-center">50</td>
+                            <td class="px-4 py-4 text-center">50</td>
+                            <td class="px-4 py-4 text-center">50</td>
+                            <td class="px-6 py-4 text-right font-bold text-white">420 HP</td>
+                        </tr>
+                         <tr class="copy-trigger hover:bg-slate-700/50" onclick="copyText('V6 3.0 Diesel Build: 40 Limit, 60 Boost, 40 Ign, 46 Fuel, 30 Valve -> 506 HP')">
+                            <td class="px-6 py-4 font-medium text-white">V6 3.0 Diesel</td>
+                            <td class="px-4 py-4 text-center">40</td>
+                            <td class="px-4 py-4 text-center">60</td>
+                            <td class="px-4 py-4 text-center">40</td>
+                            <td class="px-4 py-4 text-center">46</td>
+                            <td class="px-4 py-4 text-center">30</td>
+                            <td class="px-6 py-4 text-right font-bold text-white">506 HP</td>
+                        </tr>
+                        <tr class="copy-trigger hover:bg-slate-700/50" onclick="copyText('V8 4.2 Petrol Build: 35 Limit, 71 Boost, 37 Ign, 55 Fuel, 55 Valve -> 825 HP')">
+                            <td class="px-6 py-4 font-medium text-white">V8 4.2 Petrol</td>
+                            <td class="px-4 py-4 text-center">35</td>
+                            <td class="px-4 py-4 text-center">71</td>
+                            <td class="px-4 py-4 text-center">37</td>
+                            <td class="px-4 py-4 text-center">55</td>
+                            <td class="px-4 py-4 text-center">55</td>
+                            <td class="px-6 py-4 text-right font-bold text-white">825 HP</td>
+                        </tr>
+                        <tr class="copy-trigger hover:bg-slate-700/50" onclick="copyText('VTEC Petrol Build: 35 Limit, 45 Boost, 55 Ign, 60 Fuel, 55 Valve -> 300 HP')">
+                            <td class="px-6 py-4 font-medium text-white">VTEC Petrol</td>
+                            <td class="px-4 py-4 text-center">35</td>
+                            <td class="px-4 py-4 text-center">45</td>
+                            <td class="px-4 py-4 text-center">55</td>
+                            <td class="px-4 py-4 text-center">60</td>
+                            <td class="px-4 py-4 text-center">55</td>
+                            <td class="px-6 py-4 text-right font-bold text-white">300 HP</td>
+                        </tr>
+                        <tr class="copy-trigger hover:bg-slate-700/50" onclick="copyText('i3 1.0 Build: 35 Limit, 60 Boost, 55 Ign, 55 Fuel, 55 Valve -> 124 HP')">
+                            <td class="px-6 py-4 font-medium text-white">i3 1.0</td>
+                            <td class="px-4 py-4 text-center">35</td>
+                            <td class="px-4 py-4 text-center">60</td>
+                            <td class="px-4 py-4 text-center">55</td>
+                            <td class="px-4 py-4 text-center">55</td>
+                            <td class="px-4 py-4 text-center">55</td>
+                            <td class="px-6 py-4 text-right font-bold text-white">124 HP</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section: Car List -->
+        <section id="cars" class="scroll-mt-20">
+            <div class="flex items-center mb-6">
+                <i class="ph-duotone ph-garage text-accent text-3xl mr-3"></i>
+                <h2 class="text-2xl font-bold text-white">Supported Vehicles</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-card border border-slate-700 rounded-xl p-6">
+                    <h3 class="text-lg font-bold text-white mb-4 border-b border-slate-700 pb-2">Visual Customization List</h3>
+                    <div class="h-64 overflow-y-auto pr-2 space-y-1">
+                        <!-- We use a wrapper to make clicking easier for specific items -->
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Auidy RF3')">Auidy RF3</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Auidy RF3 Sedan')">Auidy RF3 Sedan</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('BNV K3 e92')">BNV K3 e92</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('BNV K5 e39')">BNV K5 e39</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('BNV K5 e60')">BNV K5 e60</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('BNV K8')">BNV K8</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Chule Curgete')">Chule Curgete</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Dogo Desafio')">Dogo Desafio</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Four Mustank 70s')">Four Mustank 70s</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Holde Ciwiq')">Holde Ciwiq</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Holde Inteiro')">Holde Inteiro</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Leskus not200')">Leskus not200</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Lokswag Golo')">Lokswag Golo</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Lokswag Golo GT')">Lokswag Golo GT</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Mata FX7')">Mata FX7</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Matsu Lanca')">Matsu Lanca</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Merquis Z73')">Merquis Z73</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Missah 750x')">Missah 750x</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Missah Silva')">Missah Silva</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Ontel Costa')">Ontel Costa</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Sacode Oitava')">Sacode Oitava</div>
+                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Toyoda Supwa')">Toyoda Supwa</div>
+                    </div>
+                </div>
+
+                <div class="bg-card border border-slate-700 rounded-xl p-6">
+                    <h3 class="text-lg font-bold text-white mb-4 border-b border-slate-700 pb-2">Spawn Stats</h3>
+                    <div class="flex items-center justify-between mb-4 copy-trigger p-3 rounded bg-slate-800/50" onclick="copyText('Saab Spawn Rate: 40%')">
+                        <span class="text-slate-300">Saab</span>
+                        <span class="font-mono text-accent font-bold">40%</span>
+                    </div>
+                    <div class="flex items-center justify-between copy-trigger p-3 rounded bg-slate-800/50" onclick="copyText('Yaris Spawn Rate: 2%')">
+                        <span class="text-slate-300">Yaris</span>
+                        <span class="font-mono text-accent font-bold">2%</span>
+                    </div>
+                    
+                     <!-- Image Placeholder for Wheels -->
+                    <div class="mt-6">
+                        <h3 class="text-sm font-bold text-slate-400 mb-2">Visual Gallery</h3>
+                        <!-- 
+                            IMPORTANT: Replace 'wheels.png' with your actual image file name.
+                            Place the image in the same folder as this index.html file.
+                        -->
+                        <div class="copy-trigger relative group rounded-lg overflow-hidden border border-slate-600 aspect-video flex items-center justify-center bg-black" onclick="copyImage('wheels-img')">
+                             <!-- Fallback text if image is missing -->
+                            <img id="wheels-img" src="wheels.png" alt="Wheel Rims Gallery" class="object-cover w-full h-full opacity-90 group-hover:opacity-100 transition-opacity" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            
+                            <div class="hidden absolute inset-0 flex-col items-center justify-center text-center p-4">
+                                <i class="ph-duotone ph-image text-4xl mb-2 text-slate-500"></i>
+                                <span class="text-xs text-slate-500">Image not found.<br>Name your file "wheels.png"</span>
+                            </div>
+
+                             <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                                <span class="text-white font-bold"><i class="ph-bold ph-copy mr-2"></i>Copy Image</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Guides -->
+        <section id="guides" class="scroll-mt-20">
+             <div class="flex items-center mb-6">
+                <i class="ph-duotone ph-book-open text-accent text-3xl mr-3"></i>
+                <h2 class="text-2xl font-bold text-white">Guides & Math</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Wheelie Guide -->
+                <div class="copy-trigger bg-card border border-slate-700 rounded-xl p-6" onclick="copyText('Mustang Wheelie Guide: 1. Hold W+S (Launch Control). 2. Launch & immediately tap Shift (Clutch). 3. Timing is key!')">
+                    <h3 class="text-xl font-bold text-white mb-2">Ford Mustang Wheelie</h3>
+                    <p class="text-slate-400 mb-4 text-sm">How to pop a wheelie consistently.</p>
+                    <ol class="list-decimal list-inside space-y-2 text-slate-300 text-sm">
+                        <li class="pl-2"><span class="text-accent font-bold">Hold W + S</span> together to engage Launch Control.</li>
+                        <li class="pl-2">Release S to launch, then immediately <span class="text-accent font-bold">tap Shift</span> (Clutch) to "rev" the car.</li>
+                        <li class="pl-2">Repeat to perfect the timing. Precision is required!</li>
+                    </ol>
+                </div>
+
+                <!-- Auction Math -->
+                <div class="copy-trigger bg-card border border-slate-700 rounded-xl p-6" onclick="copyText('Auction 0.1% Car Odds: 694 opens (50%), 2303 opens (90%), 4605 opens (99%), 10k opens (99.99%)')">
+                    <h3 class="text-xl font-bold text-white mb-2">Auction Odds (0.1% Car)</h3>
+                    <p class="text-slate-400 mb-4 text-sm">How many opens until you get lucky?</p>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between items-center text-sm border-b border-slate-700 pb-1">
+                            <span>694 Opens</span>
+                            <span class="text-yellow-400 font-mono">50% Chance</span>
+                        </li>
+                        <li class="flex justify-between items-center text-sm border-b border-slate-700 pb-1">
+                            <span>2,303 Opens</span>
+                            <span class="text-orange-400 font-mono">90% Chance</span>
+                        </li>
+                        <li class="flex justify-between items-center text-sm border-b border-slate-700 pb-1">
+                            <span>4,605 Opens</span>
+                            <span class="text-red-400 font-mono">99% Chance</span>
+                        </li>
+                         <li class="flex justify-between items-center text-sm border-b border-slate-700 pb-1">
+                            <span>6,000 Opens</span>
+                            <span class="text-accent font-mono">99.75% Chance</span>
+                        </li>
+                        <li class="flex justify-between items-center text-sm">
+                            <span>10,000 Opens</span>
+                            <span class="text-emerald-400 font-mono">99.9955% Chance</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-slate-800 pt-8 pb-10 text-center text-slate-500 text-sm">
+            <p class="mb-2">Note: For in-game help related questions, please use the Discord channel.</p>
+            <p>&copy; 2024 Street Wiki. Built for the community.</p>
+        </footer>
+
+    </main>
+
+    <!-- Toast Notification Element -->
+    <div id="toast">Copied to clipboard!</div>
+
+    <script>
+        // Copy Text Function
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast("Copied Info!");
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+
+        // Copy Image Function
+        async function copyImage(imgId) {
+            const img = document.getElementById(imgId);
+            if (!img || img.style.display === 'none') {
+                showToast("No image to copy!");
+                return;
+            }
+
+            try {
+                const response = await fetch(img.src);
+                const blob = await response.blob();
+                await navigator.clipboard.write([
+                    new ClipboardItem({
+                        [blob.type]: blob
+                    })
+                ]);
+                showToast("Image copied!");
+            } catch (err) {
+                console.error(err);
+                // Fallback for when direct blob copy fails (e.g. CORS or file:// protocol issues locally)
+                showToast("Could not copy image data directly.");
+            }
+        }
+
+        // Toast Logic
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.innerText = message;
+            toast.className = "show";
+            setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+        }
+    </script>
+</body>
+</html>
