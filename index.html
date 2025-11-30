@@ -171,10 +171,14 @@
             <!-- Tunes Image (Copyable) -->
             <div class="mb-6">
                 <div class="copy-trigger relative group rounded-lg overflow-hidden border border-slate-600 bg-black" onclick="copyImage('tunes-img')">
+                    <!-- Placeholder: Expects 'tunes.png' in the same folder -->
                     <img id="tunes-img" src="tunes.png" alt="Full Tuning Chart Image" class="w-full object-contain max-h-[300px] opacity-80 group-hover:opacity-100 transition-opacity" onerror="this.style.display='none'; document.getElementById('tunes-fallback').style.display='flex'">
+                    
+                    <!-- Fallback if image missing -->
                     <div id="tunes-fallback" class="hidden h-24 flex-col items-center justify-center text-center p-4 bg-slate-800">
                         <span class="text-xs text-slate-400">Add "tunes.png" to folder to see image chart</span>
                     </div>
+
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
                         <span class="text-white font-bold"><i class="ph-bold ph-copy mr-2"></i>Copy Chart Image</span>
                     </div>
@@ -488,11 +492,11 @@
                </div>
 
                <!-- Spare Parts -->
-               <div class="copy-trigger bg-card border border-slate-700 rounded-xl p-5" onclick="copyText('**Spare Parts Shop**\nSells all engines (V8, I6, I4, Diesel, VTEC, Rot, V6, I5) and repair components.\n**Fluids:** Coolant\n**Generic:** Battery, Radiator, Air Suspension')">
+               <div class="copy-trigger bg-card border border-slate-700 rounded-xl p-5" onclick="copyText('**Spare Parts Shop**\nSells all engines (V8, I6, I4, Diesel, VTEC, Rot, V6, I5, i3 1.0) and repair components.\n**Fluids:** Coolant\n**Generic:** Battery, Radiator, Air Suspension')">
                    <h3 class="text-lg font-bold text-white mb-2">Spare Parts & Fluids</h3>
                    <p class="text-sm text-slate-400 mb-2">Engines, components, and essentials.</p>
                    <div class="text-sm text-slate-300 space-y-1">
-                       <div><span class="text-accent">Engines:</span> 4.2/4.0 V8, 3.0 I6, 1.9/3.0 Diesel, 2.0 I4/VTEC, 1.3 Rot, 2.5 I5.</div>
+                       <div><span class="text-accent">Engines:</span> 4.2/4.0 V8, 3.0 I6, 1.9/3.0 Diesel, 2.0 I4/VTEC, 1.3 Rot, 2.5 I5, i3 1.0.</div>
                        <div><span class="text-accent">Fluids:</span> Coolant.</div>
                        <div><span class="text-accent">Generic:</span> Battery, Radiator, Air Suspension.</div>
                    </div>
@@ -520,11 +524,16 @@
 
            <!-- Garages -->
            <div class="mb-8">
-                <div class="flex items-center mb-4">
-                    <i class="ph-duotone ph-garage text-accent text-2xl mr-2"></i>
-                    <h3 class="text-xl font-bold text-white">Garages List</h3>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center">
+                        <i class="ph-duotone ph-garage text-accent text-2xl mr-2"></i>
+                        <h3 class="text-xl font-bold text-white">Garages List</h3>
+                    </div>
+                    <button onclick="copyAllGarages()" class="bg-slate-800 hover:bg-accent text-white px-2 py-1 rounded text-xs font-bold transition-colors border border-slate-600">
+                        <i class="ph-bold ph-copy mr-1"></i> Copy All
+                    </button>
                 </div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="garages-container">
                     <div class="copy-trigger bg-slate-800 p-3 rounded-lg border border-slate-700 hover:border-accent transition-colors" onclick="copyText('**Free Garage**\n- Capacity: 3 Slots\n- Price: Free')">
                         <div class="text-white font-bold">Free Garage</div>
                         <div class="text-xs text-slate-400">3 Slots</div>
@@ -558,12 +567,17 @@
 
            <!-- Gamepasses -->
            <div id="gamepasses">
-                <div class="flex items-center mb-4">
-                    <i class="ph-duotone ph-star text-accent text-2xl mr-2"></i>
-                    <h3 class="text-xl font-bold text-white">Gamepasses</h3>
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center">
+                        <i class="ph-duotone ph-star text-accent text-2xl mr-2"></i>
+                        <h3 class="text-xl font-bold text-white">Gamepasses</h3>
+                    </div>
+                    <button onclick="copyAllGamepasses()" class="bg-slate-800 hover:bg-accent text-white px-2 py-1 rounded text-xs font-bold transition-colors border border-slate-600">
+                        <i class="ph-bold ph-copy mr-1"></i> Copy All
+                    </button>
                 </div>
                 <div class="bg-card border border-slate-700 rounded-xl overflow-hidden">
-                    <table class="w-full text-left text-sm text-slate-400">
+                    <table class="w-full text-left text-sm text-slate-400" id="gamepass-table">
                         <thead class="bg-slate-800 text-slate-200 text-xs uppercase">
                             <tr>
                                 <th class="px-4 py-3">Name</th>
@@ -1113,6 +1127,37 @@
             copyText(text);
             showToast("Spawn Stats copied!");
         }
+
+        // Copy All Garages
+        function copyAllGarages() {
+            const list = Array.from(document.querySelectorAll('#garages-container .copy-trigger'))
+                .map(el => {
+                    const name = el.querySelector('.font-bold').innerText;
+                    const details = el.querySelector('.text-xs').innerText;
+                    // Extract price if available in a cleaner way if needed, but simple concatenation works
+                    return `- **${name}**: ${details}`;
+                })
+                .join('\n');
+            const text = `**Garages List:**\n${list}`;
+            copyText(text);
+            showToast("Garages list copied!");
+        }
+
+        // Copy All Gamepasses
+        function copyAllGamepasses() {
+            const rows = Array.from(document.querySelectorAll('#gamepass-table tbody tr'));
+            const textItems = rows.map(row => {
+               const cells = row.querySelectorAll('td');
+               const name = cells[0].innerText;
+               const price = cells[1].innerText;
+               const desc = cells[2].innerText;
+               return `- **${name}** (${price}): ${desc}`;
+            }).join('\n');
+            
+            const text = `**Gamepasses List:**\n${textItems}`;
+            copyText(text);
+            showToast("Gamepasses list copied!");
+       }
 
         // Copy Row Data (Individual Car)
         function copyRow(row) {
