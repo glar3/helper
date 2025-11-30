@@ -100,7 +100,7 @@
                     <div class="ml-10 flex items-baseline space-x-4">
                         <a href="#codes" class="hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Codes</a>
                         <a href="#tuning" class="hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Tuning</a>
-                        <a href="#customization" class="hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Visuals</a>
+                        <a href="#upgrades" class="hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Game Info</a>
                         <a href="#database" class="hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium transition-colors">Car DB</a>
                     </div>
                 </div>
@@ -171,14 +171,10 @@
             <!-- Tunes Image (Copyable) -->
             <div class="mb-6">
                 <div class="copy-trigger relative group rounded-lg overflow-hidden border border-slate-600 bg-black" onclick="copyImage('tunes-img')">
-                    <!-- Placeholder: Expects 'tunes.png' in the same folder -->
                     <img id="tunes-img" src="tunes.png" alt="Full Tuning Chart Image" class="w-full object-contain max-h-[300px] opacity-80 group-hover:opacity-100 transition-opacity" onerror="this.style.display='none'; document.getElementById('tunes-fallback').style.display='flex'">
-                    
-                    <!-- Fallback if image missing -->
                     <div id="tunes-fallback" class="hidden h-24 flex-col items-center justify-center text-center p-4 bg-slate-800">
                         <span class="text-xs text-slate-400">Add "tunes.png" to folder to see image chart</span>
                     </div>
-
                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
                         <span class="text-white font-bold"><i class="ph-bold ph-copy mr-2"></i>Copy Chart Image</span>
                     </div>
@@ -325,7 +321,6 @@
                             <i class="ph-bold ph-copy mr-1"></i> Copy List
                         </button>
                     </div>
-                    <!-- Removed h-64 to let it take full height of container -->
                     <div class="space-y-1 flex-grow" id="custom-list-container">
                         <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Auidy RF3')">Auidy RF3</div>
                         <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Auidy RF3 Sedan')">Auidy RF3 Sedan</div>
@@ -425,6 +420,189 @@
             </div>
         </section>
 
+        <!-- Section: Guides -->
+        <section id="guides" class="scroll-mt-20">
+             <div class="flex items-center mb-6">
+                <i class="ph-duotone ph-book-open text-accent text-3xl mr-3"></i>
+                <h2 class="text-2xl font-bold text-white">Guides & Math</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Wheelie Guide -->
+                <div class="copy-trigger bg-card border border-slate-700 rounded-xl p-6" onclick="copyText('**Ford Mustang Wheelie Guide**\n1. Hold **W + S** together (Launch Control)\n2. Release S to launch, then immediately tap **Shift** (Clutch)\n3. Repeat to perfect the timing!')">
+                    <h3 class="text-xl font-bold text-white mb-2">Ford Mustang Wheelie</h3>
+                    <p class="text-slate-400 mb-4 text-sm">How to pop a wheelie consistently.</p>
+                    <ol class="list-decimal list-inside space-y-2 text-slate-300 text-sm">
+                        <li class="pl-2"><span class="text-accent font-bold">Hold W + S</span> together to engage Launch Control.</li>
+                        <li class="pl-2">Release S to launch, then immediately <span class="text-accent font-bold">tap Shift</span> (Clutch) to "rev" the car.</li>
+                        <li class="pl-2">Repeat to perfect the timing. Precision is required!</li>
+                    </ol>
+                </div>
+
+                <!-- Auction Math -->
+                <div class="copy-trigger bg-card border border-slate-700 rounded-xl p-6" onclick="copyText('**Auction 0.1% Car Odds:**\n- 694 Opens: 50% Chance\n- 2,303 Opens: 90% Chance\n- 4,605 Opens: 99% Chance\n- 6,000 Opens: 99.75% Chance\n- 10,000 Opens: 99.9955% Chance')">
+                    <h3 class="text-xl font-bold text-white mb-2">Auction Odds (0.1% Car)</h3>
+                    <p class="text-slate-400 mb-4 text-sm">How many opens until you get lucky?</p>
+                    <ul class="space-y-3">
+                        <li class="flex justify-between items-center text-sm border-b border-slate-700 pb-1">
+                            <span>694 Opens</span>
+                            <span class="text-yellow-400 font-mono">50% Chance</span>
+                        </li>
+                        <li class="flex justify-between items-center text-sm border-b border-slate-700 pb-1">
+                            <span>2,303 Opens</span>
+                            <span class="text-orange-400 font-mono">90% Chance</span>
+                        </li>
+                        <li class="flex justify-between items-center text-sm border-b border-slate-700 pb-1">
+                            <span>4,605 Opens</span>
+                            <span class="text-red-400 font-mono">99% Chance</span>
+                        </li>
+                         <li class="flex justify-between items-center text-sm border-b border-slate-700 pb-1">
+                            <span>6,000 Opens</span>
+                            <span class="text-accent font-mono">99.75% Chance</span>
+                        </li>
+                        <li class="flex justify-between items-center text-sm">
+                            <span>10,000 Opens</span>
+                            <span class="text-emerald-400 font-mono">99.9955% Chance</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Upgrades & Shops (NEW) -->
+        <section id="upgrades" class="scroll-mt-20">
+            <div class="flex items-center mb-6">
+               <i class="ph-duotone ph-shopping-cart text-accent text-3xl mr-3"></i>
+               <h2 class="text-2xl font-bold text-white">Upgrades & Shops Guide</h2>
+           </div>
+
+           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Paint Shop -->
+               <div class="copy-trigger bg-card border border-slate-700 rounded-xl p-5" onclick="copyText('**PaintShop Guide**\n- **Car Paint:** Drive into booth, walk to table, choose color.\n- **Window Tint:** Drive between booths, select glass rod on the left.')">
+                   <h3 class="text-lg font-bold text-white mb-2">Paint & Window Trim</h3>
+                   <p class="text-sm text-slate-400 mb-2">One-stop destionation for visuals.</p>
+                   <ul class="text-sm text-slate-300 list-disc list-inside space-y-1">
+                       <li><span class="text-accent">Paint:</span> Drive into booth -> Menu at table.</li>
+                       <li><span class="text-accent">Tint:</span> Drive between booths -> Select rod on left.</li>
+                   </ul>
+               </div>
+
+               <!-- Spare Parts -->
+               <div class="copy-trigger bg-card border border-slate-700 rounded-xl p-5" onclick="copyText('**Spare Parts Shop**\nSells all engines (V8, I6, I4, Diesel, VTEC, Rot, V6, I5) and repair components.\n**Fluids:** Coolant\n**Generic:** Battery, Radiator, Air Suspension')">
+                   <h3 class="text-lg font-bold text-white mb-2">Spare Parts & Fluids</h3>
+                   <p class="text-sm text-slate-400 mb-2">Engines, components, and essentials.</p>
+                   <div class="text-sm text-slate-300 space-y-1">
+                       <div><span class="text-accent">Engines:</span> 4.2/4.0 V8, 3.0 I6, 1.9/3.0 Diesel, 2.0 I4/VTEC, 1.3 Rot, 2.5 I5.</div>
+                       <div><span class="text-accent">Fluids:</span> Coolant.</div>
+                       <div><span class="text-accent">Generic:</span> Battery, Radiator, Air Suspension.</div>
+                   </div>
+               </div>
+
+               <!-- Air Intake -->
+               <div class="copy-trigger bg-card border border-slate-700 rounded-xl p-5" onclick="copyText('**Air Intake Tuning**\n**Compatible Engines:** 4.0 V8, 3.0 I6, 2.0 I4, 1.9 Diesel.\n**Upgrades:** Sport Intake, Turbo Intake, Forged Engine Block.')">
+                   <h3 class="text-lg font-bold text-white mb-2">Air Intake Tuning</h3>
+                   <p class="text-sm text-slate-400 mb-2">Increase airflow and performance.</p>
+                   <ul class="text-sm text-slate-300 list-disc list-inside space-y-1">
+                       <li><span class="text-accent">Compatible:</span> 4.0 V8, 3.0 I6, 2.0 I4, 1.9 Diesel.</li>
+                       <li><span class="text-accent">Parts:</span> Sport/Turbo Intake, Forged Block.</li>
+                   </ul>
+               </div>
+
+               <!-- Other Shops -->
+               <div class="copy-trigger bg-card border border-slate-700 rounded-xl p-5" onclick="copyText('**Other Shops**\n- **Auto Custom:** Body mods for select vehicles.\n- **Notary:** Custom License Plate (€67). Applies to current vehicle.')">
+                   <h3 class="text-lg font-bold text-white mb-2">Visuals & License Plates</h3>
+                   <ul class="text-sm text-slate-300 list-disc list-inside space-y-1">
+                       <li><span class="text-accent">Auto Custom:</span> Body mods for select cars.</li>
+                       <li><span class="text-accent">Notary:</span> Custom Plate (€67).</li>
+                   </ul>
+               </div>
+           </div>
+
+           <!-- Garages -->
+           <div class="mb-8">
+                <div class="flex items-center mb-4">
+                    <i class="ph-duotone ph-garage text-accent text-2xl mr-2"></i>
+                    <h3 class="text-xl font-bold text-white">Garages List</h3>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="copy-trigger bg-slate-800 p-3 rounded-lg border border-slate-700 hover:border-accent transition-colors" onclick="copyText('**Free Garage**\n- Capacity: 3 Slots\n- Price: Free')">
+                        <div class="text-white font-bold">Free Garage</div>
+                        <div class="text-xs text-slate-400">3 Slots</div>
+                    </div>
+                    <div class="copy-trigger bg-slate-800 p-3 rounded-lg border border-slate-700 hover:border-accent transition-colors" onclick="copyText('**4-Car Garage**\n- Capacity: 4 Slots\n- Price: €30,000')">
+                        <div class="text-white font-bold">4-Car</div>
+                        <div class="text-xs text-slate-400">€30,000</div>
+                    </div>
+                    <div class="copy-trigger bg-slate-800 p-3 rounded-lg border border-slate-700 hover:border-accent transition-colors" onclick="copyText('**6-Car Garage**\n- Capacity: 6 Slots\n- Price: €100,000')">
+                        <div class="text-white font-bold">6-Car</div>
+                        <div class="text-xs text-slate-400">€100,000</div>
+                    </div>
+                    <div class="copy-trigger bg-slate-800 p-3 rounded-lg border border-slate-700 hover:border-accent transition-colors" onclick="copyText('**8-Car Garage**\n- Capacity: 8 Slots\n- Price: €350,000')">
+                        <div class="text-white font-bold">8-Car</div>
+                        <div class="text-xs text-slate-400">€350,000</div>
+                    </div>
+                    <div class="copy-trigger bg-slate-800 p-3 rounded-lg border border-slate-700 hover:border-accent transition-colors" onclick="copyText('**10-Car Garage**\n- Capacity: 10 Slots\n- Price: €800,000')">
+                        <div class="text-white font-bold">10-Car</div>
+                        <div class="text-xs text-slate-400">€800,000</div>
+                    </div>
+                    <div class="copy-trigger bg-slate-800 p-3 rounded-lg border border-slate-700 hover:border-accent transition-colors" onclick="copyText('**Premium Garage (24)**\n- Capacity: 24 Slots (3 Floors)\n- Price: 399 Robux')">
+                        <div class="text-accent font-bold">Premium 24</div>
+                        <div class="text-xs text-slate-400">399 R$</div>
+                    </div>
+                    <div class="copy-trigger bg-slate-800 p-3 rounded-lg border border-slate-700 hover:border-accent transition-colors" onclick="copyText('**Premium Garage (40)**\n- Capacity: 40 Slots (1 Floor)\n- Price: 999 Robux')">
+                        <div class="text-accent font-bold">Premium 40</div>
+                        <div class="text-xs text-slate-400">999 R$</div>
+                    </div>
+                </div>
+           </div>
+
+           <!-- Gamepasses -->
+           <div id="gamepasses">
+                <div class="flex items-center mb-4">
+                    <i class="ph-duotone ph-star text-accent text-2xl mr-2"></i>
+                    <h3 class="text-xl font-bold text-white">Gamepasses</h3>
+                </div>
+                <div class="bg-card border border-slate-700 rounded-xl overflow-hidden">
+                    <table class="w-full text-left text-sm text-slate-400">
+                        <thead class="bg-slate-800 text-slate-200 text-xs uppercase">
+                            <tr>
+                                <th class="px-4 py-3">Name</th>
+                                <th class="px-4 py-3 text-right">Price</th>
+                                <th class="px-4 py-3">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-700">
+                            <tr class="copy-trigger hover:bg-slate-700/50" onclick="copyText('**Faster Sprint** (149 R$)\n- Run significantly faster.')">
+                                <td class="px-4 py-3 font-bold text-white">Faster Sprint</td>
+                                <td class="px-4 py-3 text-right font-mono text-accent">149 R$</td>
+                                <td class="px-4 py-3">Run significantly faster.</td>
+                            </tr>
+                            <tr class="copy-trigger hover:bg-slate-700/50" onclick="copyText('**Portable Jack** (239 R$)\n- Lift cars anywhere without fixed points.')">
+                                <td class="px-4 py-3 font-bold text-white">Portable Jack</td>
+                                <td class="px-4 py-3 text-right font-mono text-accent">239 R$</td>
+                                <td class="px-4 py-3">Lift cars anywhere.</td>
+                            </tr>
+                            <tr class="copy-trigger hover:bg-slate-700/50" onclick="copyText('**VIP** (399 R$)\n- VIP Tag, 50% more job income, 10% more car sell value.')">
+                                <td class="px-4 py-3 font-bold text-white">VIP</td>
+                                <td class="px-4 py-3 text-right font-mono text-accent">399 R$</td>
+                                <td class="px-4 py-3">+50% Job Income, +10% Sell Value.</td>
+                            </tr>
+                            <tr class="copy-trigger hover:bg-slate-700/50" onclick="copyText('**Extra Inventory** (149 R$)\n- Doubles inventory from 10 to 20 slots.')">
+                                <td class="px-4 py-3 font-bold text-white">Extra Inv</td>
+                                <td class="px-4 py-3 text-right font-mono text-accent">149 R$</td>
+                                <td class="px-4 py-3">10 -> 20 Slots.</td>
+                            </tr>
+                            <tr class="copy-trigger hover:bg-slate-700/50" onclick="copyText('**Infinite Gas** (299 R$)\n- Cars never run out of gas.')">
+                                <td class="px-4 py-3 font-bold text-white">Infinite Gas</td>
+                                <td class="px-4 py-3 text-right font-mono text-accent">299 R$</td>
+                                <td class="px-4 py-3">No refueling needed.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+           </div>
+        </section>
+
         <!-- Section: Drivetrains -->
         <section id="drivetrains" class="scroll-mt-20">
             <div class="flex items-center mb-6">
@@ -467,7 +645,7 @@
                  <div class="bg-card border border-slate-700 rounded-xl p-4">
                     <h3 class="text-lg font-bold text-white mb-2 text-center bg-slate-800 rounded py-1 border border-slate-600 copy-trigger hover:bg-accent transition-colors" onclick="copyDrivetrain(this)" data-title="FWD Cars">FWD (Click to Copy)</h3>
                     <div class="space-y-1 text-sm text-slate-400" id="fwd-list">
-                        <div class="p-1 hover:text-white">Matsu Lanca (Evo)</div>
+                        <div class="p-1 hover:text-white font-bold text-accent">Matsu Lanca (Evo)</div>
                         <div class="p-1 hover:text-white">Holde Ciwiq / Inteiro</div>
                         <div class="p-1 hover:text-white">All Lokswag (Golfs)</div>
                         <div class="p-1 hover:text-white">Xitro J3 / Ontel Costa</div>
@@ -661,7 +839,7 @@
                             <td class="px-4 py-3 text-right">€30k-55k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
                         </tr>
-						<tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
+                        <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Auidy V5</td>
                             <td class="px-4 py-3">Audi A5</td>
                             <td class="px-4 py-3 text-center text-white">1%</td>
@@ -869,55 +1047,6 @@
             </div>
         </section>
 
-        <!-- Section: Guides -->
-        <section id="guides" class="scroll-mt-20">
-             <div class="flex items-center mb-6">
-                <i class="ph-duotone ph-book-open text-accent text-3xl mr-3"></i>
-                <h2 class="text-2xl font-bold text-white">Guides & Math</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Wheelie Guide -->
-                <div class="copy-trigger bg-card border border-slate-700 rounded-xl p-6" onclick="copyText('**Ford Mustang Wheelie Guide**\n1. Hold **W + S** together (Launch Control)\n2. Release S to launch, then immediately tap **Shift** (Clutch)\n3. Repeat to perfect the timing!')">
-                    <h3 class="text-xl font-bold text-white mb-2">Ford Mustang Wheelie</h3>
-                    <p class="text-slate-400 mb-4 text-sm">How to pop a wheelie consistently.</p>
-                    <ol class="list-decimal list-inside space-y-2 text-slate-300 text-sm">
-                        <li class="pl-2"><span class="text-accent font-bold">Hold W + S</span> together to engage Launch Control.</li>
-                        <li class="pl-2">Release S to launch, then immediately <span class="text-accent font-bold">tap Shift</span> (Clutch) to "rev" the car.</li>
-                        <li class="pl-2">Repeat to perfect the timing. Precision is required!</li>
-                    </ol>
-                </div>
-
-                <!-- Auction Math -->
-                <div class="copy-trigger bg-card border border-slate-700 rounded-xl p-6" onclick="copyText('**Auction 0.1% Car Odds:**\n- 694 Opens: 50% Chance\n- 2,303 Opens: 90% Chance\n- 4,605 Opens: 99% Chance\n- 6,000 Opens: 99.75% Chance\n- 10,000 Opens: 99.9955% Chance')">
-                    <h3 class="text-xl font-bold text-white mb-2">Auction Odds (0.1% Car)</h3>
-                    <p class="text-slate-400 mb-4 text-sm">How many opens until you get lucky?</p>
-                    <ul class="space-y-3">
-                        <li class="flex justify-between items-center text-sm border-b border-slate-700 pb-1">
-                            <span>694 Opens</span>
-                            <span class="text-yellow-400 font-mono">50% Chance</span>
-                        </li>
-                        <li class="flex justify-between items-center text-sm border-b border-slate-700 pb-1">
-                            <span>2,303 Opens</span>
-                            <span class="text-orange-400 font-mono">90% Chance</span>
-                        </li>
-                        <li class="flex justify-between items-center text-sm border-b border-slate-700 pb-1">
-                            <span>4,605 Opens</span>
-                            <span class="text-red-400 font-mono">99% Chance</span>
-                        </li>
-                         <li class="flex justify-between items-center text-sm border-b border-slate-700 pb-1">
-                            <span>6,000 Opens</span>
-                            <span class="text-accent font-mono">99.75% Chance</span>
-                        </li>
-                        <li class="flex justify-between items-center text-sm">
-                            <span>10,000 Opens</span>
-                            <span class="text-emerald-400 font-mono">99.9955% Chance</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
         <!-- Footer -->
         <footer class="border-t border-slate-800 pt-8 pb-10 text-center text-slate-500 text-sm">
             <p class="mb-2">Note: For in-game help related questions, please use the Discord channel.</p>
@@ -941,7 +1070,6 @@
 
         // Copy All Codes (Formatted for Discord)
         function copyAllCodes() {
-            // Hardcoded list to ensure perfect formatting
             const text = "**Active Codes:**\n- **RENASCAPTURADO** (€5,000)\n- **WATERLAVA** (€5,000)\n- **SAUSAGE** (€5,000)";
             copyText(text);
             showToast("Codes copied!");
@@ -957,16 +1085,14 @@
             showToast("Custom List copied!");
         }
 
-        // Copy Drivetrain List (New Feature!)
+        // Copy Drivetrain List
         function copyDrivetrain(header) {
             const title = header.getAttribute('data-title');
-            // Find the sibling div that contains the list items
             const listContainer = header.nextElementSibling;
             if (listContainer) {
                 const items = Array.from(listContainer.querySelectorAll('div'))
                     .map(el => `- ${el.innerText}`)
                     .join('\n');
-                
                 const text = `**${title}:**\n${items}`;
                 copyText(text);
                 showToast(`${title} copied!`);
@@ -980,7 +1106,6 @@
                     const name = el.querySelector('.font-bold').innerText;
                     const real = el.querySelector('.text-slate-500').innerText;
                     const percent = el.querySelector('.font-mono').innerText;
-                    // Format: **Name** (Real): Rate
                     return `- **${name}** (${real}): ${percent}`;
                 })
                 .join('\n');
@@ -989,7 +1114,7 @@
             showToast("Spawn Stats copied!");
         }
 
-        // Copy Row Data (Individual Car) - Formatted for Discord
+        // Copy Row Data (Individual Car)
         function copyRow(row) {
             const cells = row.querySelectorAll('td');
             const name = cells[0].innerText;
@@ -998,12 +1123,11 @@
             const price = cells[3].innerText;
             const profit = cells[4].innerText;
             
-            // Format: **Name** (Real) | Rate | Price | Profit
             const text = `**${name}** (${real}) | Rate: ${spawn} | Price: ${price} | Profit: ${profit}`;
             copyText(text);
         }
 
-        // Copy Database (Formatted for Discord)
+        // Copy Database
         function copyDatabase() {
              const rows = Array.from(document.querySelectorAll('#db-table-container tbody tr'));
              const textItems = rows.map(row => {
@@ -1040,7 +1164,6 @@
                 showToast("Image copied!");
             } catch (err) {
                 console.error(err);
-                // Fallback for when direct blob copy fails (e.g. CORS or file:// protocol issues locally)
                 showToast("Could not copy image data directly.");
             }
         }
