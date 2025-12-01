@@ -186,7 +186,7 @@
             </div>
 
             <!-- Warning Alert -->
-            <div class="copy-trigger bg-red-900/20 border-l-4 border-red-500 p-4 mb-6 rounded-r-lg group" onclick="copyText('**⚠️ Important Glitch Warning ⚠️**\nRemaps revert to stock performance if you reset, rejoin, or move the car in/out of the garage. \n- The dyno will still display the tuned HP, but the car is actually stock! \n- Remap is based on Engines, not cars.\n**Quick Fix for now!!!** \n- Remove the whole engine and put it back into the car!')">
+            <div class="copy-trigger bg-red-900/20 border-l-4 border-red-500 p-4 mb-6 rounded-r-lg group" onclick="copyText('**⚠️ IMPORTANT GLITCH WARNING ⚠️**\nRemaps revert to stock performance if you reset, rejoin, or move the car in/out of the garage. \n- The dyno will still display the tuned HP, but the car is actually stock! \n- Remap is based on Engines, not cars.\n**Quick Fix for now!!!** \n- Remove the whole engine and put it back into the car!')">
                 <div class="flex">
                     <div class="flex-shrink-0">
                         <i class="ph-fill ph-warning-circle text-red-400 text-xl group-hover:scale-110 transition-transform"></i>
@@ -194,7 +194,7 @@
                     <div class="ml-3">
                         <p class="text-sm text-red-200">
                             <span class="font-bold">Important Glitch Warning:</span> Remaps revert to stock performance if you reset, rejoin, or move the car in/out of the garage. The dyno will still display the tuned HP, but the car is actually stock! Remap is based on Engines, not cars.
-							Quick Fix for now!!! Remove the whole engine and put it back into the car!
+                            Quick Fix for now!!! Remove the whole engine and put it back into the car!
                             <span class="text-xs opacity-50 block mt-1">(Click to copy Discord formatted warning)</span>
                         </p>
                     </div>
@@ -474,7 +474,7 @@
             </div>
         </section>
 
-        <!-- Section: Upgrades & Shops (NEW) -->
+        <!-- Section: Upgrades & Shops -->
         <section id="upgrades" class="scroll-mt-20">
             <div class="flex items-center mb-6">
                <i class="ph-duotone ph-shopping-cart text-accent text-3xl mr-3"></i>
@@ -482,7 +482,7 @@
            </div>
 
            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <!-- Paint Shop -->
+               <!-- Paint Shop -->
                <div class="copy-trigger bg-card border border-slate-700 rounded-xl p-5" onclick="copyText('**PaintShop Guide**\n- **Car Paint:** Drive into booth, walk to table, choose color.\n- **Window Tint:** Drive between booths, select glass rod on the left.')">
                    <h3 class="text-lg font-bold text-white mb-2">Paint & Window Trim</h3>
                    <p class="text-sm text-slate-400 mb-2">One-stop destionation for visuals.</p>
@@ -637,6 +637,7 @@
                         <div class="p-1 hover:text-white">Merquis G Wafer</div>
                         <div class="p-1 hover:text-white">Ropes Ruyter (Rolls)</div>
                         <div class="p-1 hover:text-white">Toyoda Yapp (GR Yaris)</div>
+                        <div class="p-1 hover:text-white">Matsu Lanca (Evo)</div>
                     </div>
                 </div>
 
@@ -660,7 +661,6 @@
                  <div class="bg-card border border-slate-700 rounded-xl p-4">
                     <h3 class="text-lg font-bold text-white mb-2 text-center bg-slate-800 rounded py-1 border border-slate-600 copy-trigger hover:bg-accent transition-colors" onclick="copyDrivetrain(this)" data-title="FWD Cars">FWD (Click to Copy)</h3>
                     <div class="space-y-1 text-sm text-slate-400" id="fwd-list">
-                        <div class="p-1 hover:text-white font-bold text-accent">Matsu Lanca (Evo)</div>
                         <div class="p-1 hover:text-white">Holde Ciwiq / Inteiro</div>
                         <div class="p-1 hover:text-white">All Lokswag (Golfs)</div>
                         <div class="p-1 hover:text-white">Xitro J3 / Ontel Costa</div>
@@ -685,12 +685,22 @@
                 </button>
             </div>
             
+            <!-- Search Input -->
+            <div class="mb-4 relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="ph-bold ph-magnifying-glass text-slate-500"></i>
+                </div>
+                <input type="text" id="db-search" onkeyup="filterTable()" placeholder="Search by name (e.g., 'Yaris' or 'BNV')..." 
+                       class="bg-card border border-slate-700 text-white text-sm rounded-lg focus:ring-accent focus:border-accent block w-full pl-10 p-2.5 placeholder-slate-500">
+            </div>
+
             <div class="overflow-x-auto rounded-xl border border-slate-700 shadow-lg max-h-[600px] overflow-y-auto" id="db-table-container">
                 <table class="w-full text-left text-sm text-slate-400">
                     <thead class="bg-slate-800 text-slate-200 uppercase font-bold text-xs sticky top-0 z-10">
                         <tr>
                             <th class="px-4 py-3 bg-slate-800">In-Game Name</th>
                             <th class="px-4 py-3 bg-slate-800">Real Name</th>
+                            <th class="px-4 py-3 bg-slate-800 text-center text-accent">Top Speed</th>
                             <th class="px-4 py-3 bg-slate-800 text-center">Spawn %</th>
                             <th class="px-4 py-3 bg-slate-800 text-right">Price</th>
                             <th class="px-4 py-3 bg-slate-800 text-right text-accent">Profit</th>
@@ -701,6 +711,7 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Banana Car</td>
                             <td class="px-4 py-3">Banana Car</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-purple-400">Mod+</td>
                             <td class="px-4 py-3 text-right">N/A</td>
                             <td class="px-4 py-3 text-right font-mono">N/A</td>
@@ -708,6 +719,7 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Merquis G Wafer</td>
                             <td class="px-4 py-3">Mercedes G Wagon</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-purple-400">Event</td>
                             <td class="px-4 py-3 text-right">N/A</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -715,6 +727,7 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Ropes Ruyter Shadow</td>
                             <td class="px-4 py-3">Rolls-Royce Ghost</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-red-500 font-bold">0.1%</td>
                             <td class="px-4 py-3 text-right">Auction</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.3x</td>
@@ -724,27 +737,31 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">BNV K340i</td>
                             <td class="px-4 py-3">BMW M340i</td>
+                            <td class="px-4 py-3 text-center font-mono text-white">340 km/h</td>
                             <td class="px-4 py-3 text-center">N/A</td>
-                            <td class="px-4 py-3 text-right">599 R$</td>
+                            <td class="px-4 py-3 text-right">⏣599</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.3x</td>
                         </tr>
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">BNV K4 G</td>
                             <td class="px-4 py-3">BMW M4 Comp G82</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center">N/A</td>
-                            <td class="px-4 py-3 text-right">799 R$</td>
+                            <td class="px-4 py-3 text-right">⏣799</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.5x</td>
                         </tr>
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Auidy RF6</td>
                             <td class="px-4 py-3">Audi RS6</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center">N/A</td>
-                            <td class="px-4 py-3 text-right">699 R$</td>
+                            <td class="px-4 py-3 text-right">⏣699</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.5x</td>
                         </tr>
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Porx JT3 RF</td>
                             <td class="px-4 py-3">Porsche GT3 RS</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center">N/A</td>
                             <td class="px-4 py-3 text-right text-red-400">Offsale</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.5x</td>
@@ -752,6 +769,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Mata FX7</td>
                             <td class="px-4 py-3">Mazda RX7</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center">N/A</td>
                             <td class="px-4 py-3 text-right text-red-400">Offsale</td>
                             <td class="px-4 py-3 text-right font-mono text-white">1x</td>
@@ -759,6 +777,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">DOGO Desafio</td>
                             <td class="px-4 py-3">Dodge Challenger</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center">N/A</td>
                             <td class="px-4 py-3 text-right text-red-400">Offsale</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -766,6 +785,7 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Lambemos Iris</td>
                             <td class="px-4 py-3">Lamborghini Urus</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center">N/A</td>
                             <td class="px-4 py-3 text-right text-red-400">Offsale</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.5x</td>
@@ -773,6 +793,7 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">BNV K3 F</td>
                             <td class="px-4 py-3">BMW M3 F80</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-red-500 font-bold">0.02%</td>
                             <td class="px-4 py-3 text-right">€80k-120k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -780,13 +801,15 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Fia-Te Double</td>
                             <td class="px-4 py-3">Fiat Multipla</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center">N/A</td>
                             <td class="px-4 py-3 text-right text-red-400">Offsale</td>
-                            <td class="px-4 py-3 text-right font-mono text-accent font-bold">5x</td>
+                            <td class="px-4 py-3 text-right font-mono text-accent font-bold">4x</td>
                         </tr>
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Skami Truk</td>
                             <td class="px-4 py-3">Scania Truck</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-red-400 font-bold">0.05%</td>
                             <td class="px-4 py-3 text-right">€120k-200k</td>
                             <td class="px-4 py-3 text-right font-mono text-accent font-bold">2x</td>
@@ -794,6 +817,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">BNV K8</td>
                             <td class="px-4 py-3">BMW M8</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-red-400">0.05%</td>
                             <td class="px-4 py-3 text-right">€180k-230k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -801,6 +825,7 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Merquis SLX</td>
                             <td class="px-4 py-3">Mercedes SLS</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-red-400">0.05%</td>
                             <td class="px-4 py-3 text-right">€180k-280k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -808,6 +833,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Missah JTF</td>
                             <td class="px-4 py-3">Nissan GT-R R35</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center">N/A</td>
                             <td class="px-4 py-3 text-right text-red-400">Offsale</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.3x</td>
@@ -815,6 +841,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Chule Curgete</td>
                             <td class="px-4 py-3">Corvette C6</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-orange-400">0.1%</td>
                             <td class="px-4 py-3 text-right">€65k-120k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -822,6 +849,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Auidy V7</td>
                             <td class="px-4 py-3">Audi A7</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-orange-400">0.1%</td>
                             <td class="px-4 py-3 text-right">€50k-100k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -829,6 +857,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Auidy RF3 Sedan</td>
                             <td class="px-4 py-3">Audi RS3 Sedan</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-yellow-400">0.3%</td>
                             <td class="px-4 py-3 text-right">€70k-90k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -836,6 +865,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">BNV K5 e60</td>
                             <td class="px-4 py-3">BMW M5 E60</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-yellow-400">0.5%</td>
                             <td class="px-4 py-3 text-right">€60k-90k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -843,6 +873,7 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Auidy RF3</td>
                             <td class="px-4 py-3">Audi RS3</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-yellow-400">0.6%</td>
                             <td class="px-4 py-3 text-right">€40k-55k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -850,6 +881,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Missah 750x</td>
                             <td class="px-4 py-3">Nissan 350Z</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">1%</td>
                             <td class="px-4 py-3 text-right">€30k-55k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -857,6 +889,7 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Auidy V5</td>
                             <td class="px-4 py-3">Audi A5</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">1%</td>
                             <td class="px-4 py-3 text-right">€40k-55k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -864,6 +897,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Chule Camarao</td>
                             <td class="px-4 py-3">Chevrolet Camaro</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">1%</td>
                             <td class="px-4 py-3 text-right">€60k-100k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -871,6 +905,7 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Merquis Z73</td>
                             <td class="px-4 py-3">Mercedes C63</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">1%</td>
                             <td class="px-4 py-3 text-right">€35k-65k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -878,6 +913,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">BNV K3 e92</td>
                             <td class="px-4 py-3">BMW 3 Series E92</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">1%</td>
                             <td class="px-4 py-3 text-right">€45k-60k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -885,6 +921,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Matsu Lanca</td>
                             <td class="px-4 py-3">Mitsubishi Evo</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">2%</td>
                             <td class="px-4 py-3 text-right">€15k-55k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.3x</td>
@@ -892,6 +929,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Lokswag Golo GT</td>
                             <td class="px-4 py-3">Golf GTI</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">2%</td>
                             <td class="px-4 py-3 text-right">€25k-55k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -899,6 +937,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Toyoda Yapp</td>
                             <td class="px-4 py-3">Toyota GR Yaris</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">2%</td>
                             <td class="px-4 py-3 text-right">€25k-55k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -906,6 +945,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">BNV K140</td>
                             <td class="px-4 py-3">BMW M140i</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">3%</td>
                             <td class="px-4 py-3 text-right">Auction</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -913,6 +953,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">BNV K5 e39</td>
                             <td class="px-4 py-3">BMW M5 E39</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">3%</td>
                             <td class="px-4 py-3 text-right">€20k-50k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -920,6 +961,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Four Traffic</td>
                             <td class="px-4 py-3">Ford Transit</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">6%</td>
                             <td class="px-4 py-3 text-right">€15k-30k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.3x</td>
@@ -927,6 +969,7 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Merquis C203</td>
                             <td class="px-4 py-3">Merc W203</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">7%</td>
                             <td class="px-4 py-3 text-right">€9k-22k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.25x</td>
@@ -934,6 +977,7 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Toyoda Hellox</td>
                             <td class="px-4 py-3">Toyota Hilux</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">7%</td>
                             <td class="px-4 py-3 text-right">€28k-40k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.3x</td>
@@ -941,6 +985,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Holde Inteiro</td>
                             <td class="px-4 py-3">Honda Integra</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">7%</td>
                             <td class="px-4 py-3 text-right">€9k-30k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.5x</td>
@@ -948,6 +993,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Leskus not200</td>
                             <td class="px-4 py-3">Lexus IS200</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">10%</td>
                             <td class="px-4 py-3 text-right">€9k-20k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.3x</td>
@@ -955,6 +1001,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">BNV K3</td>
                             <td class="px-4 py-3">BMW M3 E36</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">10%</td>
                             <td class="px-4 py-3 text-right">€9k-20k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.3x</td>
@@ -962,6 +1009,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Missah Silva</td>
                             <td class="px-4 py-3">Nissan Silvia</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">10%</td>
                             <td class="px-4 py-3 text-right">€15k-25k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -969,6 +1017,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Holde Ciwiq</td>
                             <td class="px-4 py-3">Honda Civic</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">11%</td>
                             <td class="px-4 py-3 text-right">€5k-15k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.5x</td>
@@ -976,6 +1025,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Auidy V4</td>
                             <td class="px-4 py-3">Audi A4</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">15%</td>
                             <td class="px-4 py-3 text-right">€12k-18k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.3x</td>
@@ -983,6 +1033,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Lokswag Golo MK4</td>
                             <td class="px-4 py-3">Golf Mk4</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-white">15%</td>
                             <td class="px-4 py-3 text-right">€12k-17k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -990,6 +1041,7 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Lokswag Passar</td>
                             <td class="px-4 py-3">VW Passat B5</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-slate-400">20%</td>
                             <td class="px-4 py-3 text-right">€8k-14k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.3x</td>
@@ -997,6 +1049,7 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Sacode Oitava</td>
                             <td class="px-4 py-3">Skoda Octavia</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-slate-400">20%</td>
                             <td class="px-4 py-3 text-right">€8k-14k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.3x</td>
@@ -1004,6 +1057,7 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Xitro J3</td>
                             <td class="px-4 py-3">Citroën C3</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-slate-400">40%</td>
                             <td class="px-4 py-3 text-right">€15k-20k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -1011,6 +1065,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Renas Kapturado</td>
                             <td class="px-4 py-3">Renault Captur</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-slate-400">30%</td>
                             <td class="px-4 py-3 text-right">€5k-11k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.3x</td>
@@ -1018,6 +1073,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Lokswag Golo</td>
                             <td class="px-4 py-3">VW Golf</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-slate-400">30%</td>
                             <td class="px-4 py-3 text-right">€4k-8k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.5x</td>
@@ -1025,6 +1081,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Ontel Costa</td>
                             <td class="px-4 py-3">Opel Corsa B</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-slate-400">30%</td>
                             <td class="px-4 py-3 text-right">€700-3k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.5x</td>
@@ -1032,6 +1089,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Sabes Muito</td>
                             <td class="px-4 py-3">Saab 9-5</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-slate-400">40%</td>
                             <td class="px-4 py-3 text-right">€7k-15k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.2x</td>
@@ -1039,6 +1097,7 @@
                         <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Peujo 200e6</td>
                             <td class="px-4 py-3">Peugeot 206</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-slate-500">50%</td>
                             <td class="px-4 py-3 text-right">€1k-4k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.5x</td>
@@ -1046,6 +1105,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Fia-Te Ponto</td>
                             <td class="px-4 py-3">Fiat Punto</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-slate-500">50%</td>
                             <td class="px-4 py-3 text-right">€700-3k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.5x</td>
@@ -1053,6 +1113,7 @@
                          <tr class="hover:bg-slate-700/50 copy-trigger" onclick="copyRow(this)">
                             <td class="px-4 py-3 font-bold text-white">Siath Lion</td>
                             <td class="px-4 py-3">SEAT Leon</td>
+                            <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                             <td class="px-4 py-3 text-center text-slate-500">50%</td>
                             <td class="px-4 py-3 text-right">€1.5k-4k</td>
                             <td class="px-4 py-3 text-right font-mono text-emerald-400">1.5x</td>
@@ -1135,7 +1196,6 @@
                 .map(el => {
                     const name = el.querySelector('.font-bold').innerText;
                     const details = el.querySelector('.text-xs').innerText;
-                    // Extract price if available in a cleaner way if needed, but simple concatenation works
                     return `- **${name}**: ${details}`;
                 })
                 .join('\n');
@@ -1160,16 +1220,21 @@
             showToast("Gamepasses list copied!");
        }
 
-        // Copy Row Data (Individual Car)
+        // Copy Row Data (Updated with Top Speed and Vertical Format)
         function copyRow(row) {
             const cells = row.querySelectorAll('td');
+            
+            // Get data from columns
             const name = cells[0].innerText;
             const real = cells[1].innerText;
-            const spawn = cells[2].innerText;
-            const price = cells[3].innerText;
-            const profit = cells[4].innerText;
+            const speed = cells[2].innerText;
+            const spawn = cells[3].innerText;
+            const price = cells[4].innerText;
+            const profit = cells[5].innerText;
             
-            const text = `**${name}** (${real}) | Rate: ${spawn} | Price: ${price} | Profit: ${profit}`;
+            // The "YKYK" Vertical Format
+            const text = `**${name}**\n- Real Model: ${real}\n- Top Speed: ${speed}\n- Spawn Rate: ${spawn}\n- Price: ${price}\n- Sell Profit: ${profit}`;
+            
             copyText(text);
         }
 
@@ -1180,9 +1245,10 @@
                 const cells = row.querySelectorAll('td');
                 const name = cells[0].innerText;
                 const real = cells[1].innerText;
-                const spawn = cells[2].innerText;
-                const price = cells[3].innerText;
-                const profit = cells[4].innerText;
+                const speed = cells[2].innerText;
+                const spawn = cells[3].innerText;
+                const price = cells[4].innerText;
+                const profit = cells[5].innerText;
                 return `- **${name}** (${real}) | Rate: ${spawn} | Price: ${price} | Profit: ${profit}`;
              }).join('\n');
              
@@ -1220,6 +1286,30 @@
             toast.innerText = message;
             toast.className = "show";
             setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+        }
+
+        // Filter Table Function
+        function filterTable() {
+            const input = document.getElementById("db-search");
+            const filter = input.value.toUpperCase();
+            const table = document.querySelector("#database table tbody");
+            const tr = table.getElementsByTagName("tr");
+
+            for (let i = 0; i < tr.length; i++) {
+                const tdGameName = tr[i].getElementsByTagName("td")[0];
+                const tdRealName = tr[i].getElementsByTagName("td")[1];
+                
+                if (tdGameName || tdRealName) {
+                    const txtValueG = tdGameName.textContent || tdGameName.innerText;
+                    const txtValueR = tdRealName.textContent || tdRealName.innerText;
+                    
+                    if (txtValueG.toUpperCase().indexOf(filter) > -1 || txtValueR.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }       
+            }
         }
     </script>
 </body>
