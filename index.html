@@ -110,8 +110,8 @@
                 <!-- Desktop Nav Tabs -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-2">
-                        <!-- Note: onclick events trigger the JS at bottom -->
-                        <button onclick="switchTab('codes')" id="tab-codes" class="nav-btn px-3 py-2 rounded-md text-sm font-medium transition-all bg-accent text-white">Codes</button>
+                        <button onclick="switchTab('home')" id="tab-home" class="nav-btn px-3 py-2 rounded-md text-sm font-medium transition-all bg-accent text-white">Codes</button>
+						<button onclick="switchTab('codes')" id="tab-codes" class="nav-btn px-3 py-2 rounded-md text-sm font-medium transition-all bg-accent text-white">Codes</button>
                         <button onclick="switchTab('tuning')" id="tab-tuning" class="nav-btn px-3 py-2 rounded-md text-sm font-medium transition-all text-slate-300 hover:bg-slate-800">Tuning</button>
                         <button onclick="switchTab('database')" id="tab-database" class="nav-btn px-3 py-2 rounded-md text-sm font-medium transition-all text-slate-300 hover:bg-slate-800">Car DB</button>
                         <button onclick="switchTab('customization')" id="tab-customization" class="nav-btn px-3 py-2 rounded-md text-sm font-medium transition-all text-slate-300 hover:bg-slate-800">Visuals</button>
@@ -125,6 +125,7 @@
         <!-- Mobile Nav (Horizontal Scroll) -->
         <div class="md:hidden overflow-x-auto border-t border-slate-700">
             <div class="flex space-x-2 p-2 min-w-max">
+                <button onclick="switchTab('home')" class="mobile-nav-btn px-3 py-2 rounded-md text-sm font-bold bg-accent text-white">Home</button>
                 <button onclick="switchTab('codes')" class="mobile-nav-btn px-3 py-2 rounded-md text-sm font-bold bg-accent text-white">Codes</button>
                 <button onclick="switchTab('tuning')" class="mobile-nav-btn px-3 py-2 rounded-md text-sm font-medium text-slate-300">Tuning</button>
                 <button onclick="switchTab('database')" class="mobile-nav-btn px-3 py-2 rounded-md text-sm font-medium text-slate-300">Car DB</button>
@@ -138,6 +139,23 @@
 
     <!-- Main Content Container -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow">
+	
+		<!-- Header / Intro -->
+        <section id="home" class="content-tab fade-in">
+			<div class="text-center space-y-4">
+				<h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+					Fix It Up <span class="text-accent">Helper's</span> Hub
+				</h1>
+				<p class="text-lg text-slate-400 max-w-2xl mx-auto">
+					The ultimate toolkit for supporting players. <br>
+					Instant copy-paste builds, codes, and stats formatted perfectly for Discord help channels.
+					<br>
+					<span class="text-sm text-slate-500 bg-slate-800 px-2 py-1 rounded mt-2 inline-block">
+						<i class="ph-bold ph-cursor-click mr-1"></i> Click any card, row, or header to copy!
+					</span>
+				</p>
+			</div>
+		</section>
 
         <!-- 1. CODES TAB -->
         <section id="codes" class="content-tab fade-in">
