@@ -499,115 +499,164 @@
         </section>
 
         <section id="customization" class="content-tab hidden fade-in">
-            <div class="text-center mb-8">
-                <h1 class="text-3xl font-extrabold text-white">Visuals & <span class="text-accent">Spawns</span></h1>
-                <p class="text-slate-400 text-sm">Visual custom parts list and spawn location stats.</p>
+    <div class="text-center mb-8">
+        <h1 class="text-3xl font-extrabold text-white">Visuals & <span class="text-accent">Spawns</span></h1>
+        <p class="text-slate-400 text-sm">Visual custom parts list, spawn stats, and trading rules.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="bg-card border border-slate-700 rounded-xl p-6 flex flex-col">
+            <div class="flex items-center justify-between mb-4 border-b border-slate-700 pb-2">
+                <h3 class="text-lg font-bold text-white">Visual Customization List</h3>
+                <button onclick="copyCustomList()" class="bg-slate-800 hover:bg-accent text-white px-2 py-1 rounded text-xs font-bold transition-colors">
+                    <i class="ph-bold ph-copy mr-1"></i> Copy List
+                </button>
+            </div>
+            <div class="space-y-1 flex-grow overflow-y-auto max-h-[600px]" id="custom-list-container">
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Auidy RF3')">Auidy RF3</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Auidy RF3 Sedan')">Auidy RF3 Sedan</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('BNV K3 e92')">BNV K3 e92</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('BNV K5 e39')">BNV K5 e39</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('BNV K5 e60')">BNV K5 e60</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('BNV K8')">BNV K8</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Chule Curgete')">Chule Curgete</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Dogo Desafio')">Dogo Desafio</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Four Mustank 70s')">Four Mustank 70s</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Holde Ciwiq')">Holde Ciwiq</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Holde Inteiro')">Holde Inteiro</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Leskus not200')">Leskus not200</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Lokswag Golo')">Lokswag Golo</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Lokswag Golo GT')">Lokswag Golo GT</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Mata FX7')">Mata FX7</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Matsu Lanca')">Matsu Lanca</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Merquis Z73')">Merquis Z73</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Missah 750x')">Missah 750x</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Missah Silva')">Missah Silva</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Ontel Costa')">Ontel Costa</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Sacode Oitava')">Sacode Oitava</div>
+                <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Toyoda Supwa')">Toyoda Supwa</div>
+            </div>
+        </div>
+
+        <div class="bg-card border border-slate-700 rounded-xl p-6 flex flex-col">
+            <div class="flex items-center justify-between mb-4 border-b border-slate-700 pb-2">
+                <h3 class="text-lg font-bold text-white">Key Spawn Stats</h3>
+                <button onclick="copySpawnStats()" class="bg-slate-800 hover:bg-accent text-white px-2 py-1 rounded text-xs font-bold transition-colors">
+                    <i class="ph-bold ph-copy mr-1"></i> Copy Stats
+                </button>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-card border border-slate-700 rounded-xl p-6 flex flex-col">
-                    <div class="flex items-center justify-between mb-4 border-b border-slate-700 pb-2">
-                        <h3 class="text-lg font-bold text-white">Visual Customization List</h3>
-                         <button onclick="copyCustomList()" class="bg-slate-800 hover:bg-accent text-white px-2 py-1 rounded text-xs font-bold transition-colors">
-                            <i class="ph-bold ph-copy mr-1"></i> Copy List
-                        </button>
+            <div id="spawn-stats-container" class="space-y-2 mb-6">
+                 <div class="copy-trigger flex justify-between items-center text-sm p-2 rounded bg-slate-800/50 hover:bg-slate-700" onclick="copyText('**Ropes Ruyter Shadow** (Rolls-Royce Ghost)\n- Rate: 0.1%\n- Note: Auction Exclusive (1.3x)')">
+                    <div>
+                        <div class="text-white font-bold">Ropes Ruyter Shadow</div>
+                        <div class="text-xs text-slate-500">Rolls-Royce Ghost</div>
                     </div>
-                    <div class="space-y-1 flex-grow overflow-y-auto max-h-[600px]" id="custom-list-container">
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Auidy RF3')">Auidy RF3</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Auidy RF3 Sedan')">Auidy RF3 Sedan</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('BNV K3 e92')">BNV K3 e92</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('BNV K5 e39')">BNV K5 e39</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('BNV K5 e60')">BNV K5 e60</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('BNV K8')">BNV K8</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Chule Curgete')">Chule Curgete</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Dogo Desafio')">Dogo Desafio</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Four Mustank 70s')">Four Mustank 70s</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Holde Ciwiq')">Holde Ciwiq</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Holde Inteiro')">Holde Inteiro</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Leskus not200')">Leskus not200</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Lokswag Golo')">Lokswag Golo</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Lokswag Golo GT')">Lokswag Golo GT</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Mata FX7')">Mata FX7</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Matsu Lanca')">Matsu Lanca</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Merquis Z73')">Merquis Z73</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Missah 750x')">Missah 750x</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Missah Silva')">Missah Silva</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Ontel Costa')">Ontel Costa</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Sacode Oitava')">Sacode Oitava</div>
-                        <div class="copy-trigger p-2 hover:bg-slate-700 rounded cursor-pointer" onclick="copyText('Toyoda Supwa')">Toyoda Supwa</div>
+                    <div class="text-right">
+                        <div class="text-accent font-mono font-bold">0.1%</div>
+                        <div class="text-xs text-slate-400">Auction Exclusive (1.3x)</div>
                     </div>
                 </div>
 
-                <div class="bg-card border border-slate-700 rounded-xl p-6 flex flex-col">
-                    <div class="flex items-center justify-between mb-4 border-b border-slate-700 pb-2">
-                        <h3 class="text-lg font-bold text-white">Key Spawn Stats</h3>
-                         <button onclick="copySpawnStats()" class="bg-slate-800 hover:bg-accent text-white px-2 py-1 rounded text-xs font-bold transition-colors">
-                            <i class="ph-bold ph-copy mr-1"></i> Copy Stats
-                        </button>
+                 <div class="copy-trigger flex justify-between items-center text-sm p-2 rounded bg-slate-800/50 hover:bg-slate-700" onclick="copyText('**Toyoda Yapp** (Toyota GR Yaris)\n- Rate: 2%\n- Price: €25k-55k (1.2x)')">
+                    <div>
+                        <div class="text-white font-bold">Toyoda Yapp</div>
+                        <div class="text-xs text-slate-500">Toyota GR Yaris</div>
                     </div>
-                    
-                    <div id="spawn-stats-container" class="space-y-2 mb-6">
-                         <div class="copy-trigger flex justify-between items-center text-sm p-2 rounded bg-slate-800/50 hover:bg-slate-700" onclick="copyText('**Ropes Ruyter Shadow** (Rolls-Royce Ghost)\n- Rate: 0.1%\n- Note: Auction Exclusive (1.3x)')">
-                            <div>
-                                <div class="text-white font-bold">Ropes Ruyter Shadow</div>
-                                <div class="text-xs text-slate-500">Rolls-Royce Ghost</div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-accent font-mono font-bold">0.1%</div>
-                                <div class="text-xs text-slate-400">Auction Exclusive (1.3x)</div>
-                            </div>
-                        </div>
-
-                         <div class="copy-trigger flex justify-between items-center text-sm p-2 rounded bg-slate-800/50 hover:bg-slate-700" onclick="copyText('**Toyoda Yapp** (Toyota GR Yaris)\n- Rate: 2%\n- Price: €25k-55k (1.2x)')">
-                            <div>
-                                <div class="text-white font-bold">Toyoda Yapp</div>
-                                <div class="text-xs text-slate-500">Toyota GR Yaris</div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-accent font-mono font-bold">2%</div>
-                                <div class="text-xs text-slate-400">€25k-55k (1.2x)</div>
-                            </div>
-                        </div>
-
-                         <div class="copy-trigger flex justify-between items-center text-sm p-2 rounded bg-slate-800/50 hover:bg-slate-700" onclick="copyText('**Xitro J3** (Citroën C3)\n- Rate: 40%\n- Price: €15k-20k (1.2x)')">
-                            <div>
-                                <div class="text-white font-bold">Xitro J3</div>
-                                <div class="text-xs text-slate-500">Citroën C3</div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-emerald-400 font-mono font-bold">40%</div>
-                                <div class="text-xs text-slate-400">€15k-20k (1.2x)</div>
-                            </div>
-                        </div>
-
-                        <div class="copy-trigger flex justify-between items-center text-sm p-2 rounded bg-slate-800/50 hover:bg-slate-700" onclick="copyText('**Sabes Muito** (Saab 9-5 Wagon)\n- Rate: 40%\n- Price: €7k-15k (1.2x)')">
-                            <div>
-                                <div class="text-white font-bold">Sabes Muito</div>
-                                <div class="text-xs text-slate-500">Saab 9-5 Wagon</div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-emerald-400 font-mono font-bold">40%</div>
-                                <div class="text-xs text-slate-400">€7k-15k (1.2x)</div>
-                            </div>
-                        </div>
+                    <div class="text-right">
+                        <div class="text-accent font-mono font-bold">2%</div>
+                        <div class="text-xs text-slate-400">€25k-55k (1.2x)</div>
                     </div>
-                    
-                    <div class="mt-auto">
-                        <h3 class="text-sm font-bold text-slate-400 mb-2">Visual Gallery (Rims)</h3>
-                        <div class="copy-trigger relative group rounded-lg overflow-hidden border border-slate-600 aspect-video flex items-center justify-center bg-black" onclick="copyImage('wheels-img')">
-                            <img id="wheels-img" src="wheels.png" alt="Wheel Rims Gallery" class="object-contain w-full h-full opacity-90 group-hover:opacity-100 transition-opacity" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                            <div class="hidden absolute inset-0 flex-col items-center justify-center text-center p-4">
-                                <i class="ph-duotone ph-image text-4xl mb-2 text-slate-500"></i>
-                                <span class="text-xs text-slate-500">Image not found.<br>Name your file "wheels.png"</span>
-                            </div>
-                             <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
-                                <span class="text-white font-bold"><i class="ph-bold ph-copy mr-2"></i>Copy Image</span>
-                            </div>
-                        </div>
+                </div>
+
+                 <div class="copy-trigger flex justify-between items-center text-sm p-2 rounded bg-slate-800/50 hover:bg-slate-700" onclick="copyText('**Xitro J3** (Citroën C3)\n- Rate: 40%\n- Price: €15k-20k (1.2x)')">
+                    <div>
+                        <div class="text-white font-bold">Xitro J3</div>
+                        <div class="text-xs text-slate-500">Citroën C3</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-emerald-400 font-mono font-bold">40%</div>
+                        <div class="text-xs text-slate-400">€15k-20k (1.2x)</div>
+                    </div>
+                </div>
+
+                <div class="copy-trigger flex justify-between items-center text-sm p-2 rounded bg-slate-800/50 hover:bg-slate-700" onclick="copyText('**Sabes Muito** (Saab 9-5 Wagon)\n- Rate: 40%\n- Price: €7k-15k (1.2x)')">
+                    <div>
+                        <div class="text-white font-bold">Sabes Muito</div>
+                        <div class="text-xs text-slate-500">Saab 9-5 Wagon</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-emerald-400 font-mono font-bold">40%</div>
+                        <div class="text-xs text-slate-400">€7k-15k (1.2x)</div>
                     </div>
                 </div>
             </div>
-        </section>
+            
+            <div class="mt-auto">
+                <h3 class="text-sm font-bold text-slate-400 mb-2">Visual Gallery (Rims)</h3>
+                <div class="copy-trigger relative group rounded-lg overflow-hidden border border-slate-600 aspect-video flex items-center justify-center bg-black" onclick="copyImage('wheels-img')">
+                    <img id="wheels-img" src="wheels.png" alt="Wheel Rims Gallery" class="object-contain w-full h-full opacity-90 group-hover:opacity-100 transition-opacity" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                    <div class="hidden absolute inset-0 flex-col items-center justify-center text-center p-4">
+                        <i class="ph-duotone ph-image text-4xl mb-2 text-slate-500"></i>
+                        <span class="text-xs text-slate-500">Image not found.<br>Name your file "wheels.png"</span>
+                    </div>
+                     <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                        <span class="text-white font-bold"><i class="ph-bold ph-copy mr-2"></i>Copy Image</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copy-trigger bg-card border border-slate-700 rounded-xl p-6 flex flex-col cursor-pointer transition-colors hover:border-slate-500" onclick="copyText('**CONTRACT RULES**\n- Req: 50 Cars Sold & 2 Hrs Gameplay\n- Price: Must be 80% of Buy Price\n- WARNING: Always record trades! Scams = Ban.')">
+            <div class="flex items-center justify-between mb-4 border-b border-slate-700 pb-2">
+                <h3 class="text-lg font-bold text-white">Contracts & Trading</h3>
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Click card to copy</span>
+            </div>
+
+            <div class="mb-4 relative group rounded-lg overflow-hidden border border-slate-600 aspect-video flex items-center justify-center bg-black" onclick="copyImage('contracts-img'); event.stopPropagation();">
+                <img id="contracts-img" src="contracts.png" alt="Contract System" class="object-cover w-full h-full opacity-90 group-hover:opacity-100 transition-opacity" onerror="this.style.display='none';">
+                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                    <span class="text-white font-bold text-sm"><i class="ph-bold ph-copy mr-2"></i>Copy Contract Image</span>
+                </div>
+            </div>
+
+            <div class="space-y-4 flex-grow">
+                <div>
+                    <h4 class="text-accent font-bold text-sm uppercase mb-2">Requirements</h4>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between items-center text-sm border-b border-slate-700 pb-1">
+                            <span class="text-slate-400">Cars Sold</span>
+                            <span class="text-white font-mono">50+</span>
+                        </li>
+                        <li class="flex justify-between items-center text-sm border-b border-slate-700 pb-1">
+                            <span class="text-slate-400">Total Gameplay</span>
+                            <span class="text-white font-mono">2 Hours+</span>
+                        </li>
+                        <li class="flex justify-between items-center text-sm border-b border-slate-700 pb-1">
+                            <span class="text-slate-400">Price Rule</span>
+                            <span class="text-emerald-400 font-mono">80% of Buy Price</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-lg p-3 border border-slate-700">
+                    <div class="flex items-center gap-2 mb-1">
+                        <i class="ph-bold ph-warning text-yellow-400"></i>
+                        <span class="text-white font-bold text-sm">Trust Trade Warning</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Trades are at your own risk. <span class="text-white font-bold">ALWAYS RECORD</span> your gameplay during a trade.
+                    </p>
+                    <div class="mt-2 text-xs text-rose-400 font-bold border-t border-slate-700 pt-2">
+                        <i class="ph-bold ph-prohibit mr-1"></i> Scams/Lies = Ban
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 
         <section id="drivetrains" class="content-tab hidden fade-in">
             <div class="text-center mb-8">
@@ -931,7 +980,7 @@
             <p class="mb-2">Contributor: metakvbus for the mental support! ❤️</p>
             <p class="mb-2">Contributor: Leandro for helping with content! ❤️</p>
             <p class="mb-2">Note: For in-game help related questions, please use the Discord channel.</p>
-            <p>&copy; 2026 Street Wiki. Built for the community.</p>
+            <p>&copy; 2026 Street Wiki. Built for the Helpers of Fix It Up.</p>
         </footer>
 
     </main>
