@@ -192,6 +192,13 @@
               >
                 Shops
               </button>
+              <button
+                onclick="switchTab('maps')"
+                id="tab-maps"
+                class="nav-btn px-3 py-2 rounded-md text-sm font-medium transition-all text-slate-300 hover:bg-slate-800"
+              >
+                Maps
+              </button>
             </div>
           </div>
         </div>
@@ -245,6 +252,12 @@
             class="mobile-nav-btn px-3 py-2 rounded-md text-sm font-medium text-slate-300"
           >
             Shops
+          </button>
+          <button
+            onclick="switchTab('maps')"
+            class="mobile-nav-btn px-3 py-2 rounded-md text-sm font-medium text-slate-300"
+          >
+            Maps
           </button>
         </div>
       </div>
@@ -669,9 +682,9 @@
                 <td class="px-4 py-3 font-bold text-white">BNV K4 G</td>
                 <td class="px-4 py-3">BMW M4 Competition G82</td>
                 <td
-                  class="px-4 py-3 text-center text-slate-500 BMW-M4-Competition-G82"
+                  class="px-4 py-3 text-center font-mono BMW-M4-Competition-G82"
                 >
-                  N/A
+                  425 m/h
                 </td>
                 <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                 <td class="px-4 py-3 text-right">⏣799</td>
@@ -687,8 +700,8 @@
               >
                 <td class="px-4 py-3 font-bold text-white">Auidy RF6</td>
                 <td class="px-4 py-3">Audi RS6</td>
-                <td class="px-4 py-3 text-center text-slate-500 Audi-RS6">
-                  N/A
+                <td class="px-4 py-3 text-center font-mono Audi-RS6">
+                  425 km/h
                 </td>
                 <td class="px-4 py-3 text-center text-slate-500">N/A</td>
                 <td class="px-4 py-3 text-right">⏣699</td>
@@ -795,10 +808,8 @@
               >
                 <td class="px-4 py-3 font-bold text-white">Lambemos Iris</td>
                 <td class="px-4 py-3">Lamborghini Urus</td>
-                <td
-                  class="px-4 py-3 text-center text-slate-500 Lamborghini-Urus"
-                >
-                  N/A
+                <td class="px-4 py-3 text-center text-mono Lamborghini-Urus">
+                  425 km/h
                 </td>
                 <td class="px-4 py-3 text-center text-slate-400">
                   N/A (Was 0.02%)
@@ -909,10 +920,8 @@
               >
                 <td class="px-4 py-3 font-bold text-white">Missah JTF</td>
                 <td class="px-4 py-3">Nissan GT-R R35</td>
-                <td
-                  class="px-4 py-3 text-center text-slate-500 Nissan-GT-R-R35"
-                >
-                  N/A
+                <td class="px-4 py-3 text-center font-mono Nissan-GT-R-R35">
+                  425 km/h
                 </td>
                 <td class="px-4 py-3 text-center text-slate-400">
                   N/A (Was 0.1%)
@@ -1029,8 +1038,8 @@
               >
                 <td class="px-4 py-3 font-bold text-white">Auidy F8</td>
                 <td class="px-4 py-3">Audi R8</td>
-                <td class="px-4 py-3 text-center text-slate-500 Audi-R8">
-                  N/A
+                <td class="px-4 py-3 text-center font-mono Audi-R8">
+                  425 km/h
                 </td>
                 <td class="px-4 py-3 text-center text-slate-400">
                   N/A (Was 0.2%)
@@ -1050,8 +1059,10 @@
                   Auidy F8 Performance
                 </td>
                 <td class="px-4 py-3">2020 Audi R8</td>
-                <td class="px-4 py-3 text-center text-slate-500 2020-Audi-R8">
-                  N/A
+                <td
+                  class="px-4 py-3 text-center font-mono text-white 2020-Audi-R8"
+                >
+                  330 km/h
                 </td>
                 <td class="px-4 py-3 text-center text-slate-400">
                   N/A (Was 0.3%)
@@ -1188,9 +1199,7 @@
               >
                 <td class="px-4 py-3 font-bold text-white">Auidy V5</td>
                 <td class="px-4 py-3">Audi A5</td>
-                <td class="px-4 py-3 text-center text-slate-500 Audi-A5">
-                  N/A
-                </td>
+                <td class="px-4 py-3 text-center text-mono Audi-A5">250km/h</td>
                 <td class="px-4 py-3 text-center text-yellow-400">1%</td>
                 <td class="px-4 py-3 text-right">€40k-€55k</td>
                 <td class="px-4 py-3 text-right font-mono text-emerald-400">
@@ -1942,7 +1951,7 @@
 
           <div
             class="copy-trigger bg-card border border-slate-700 rounded-xl p-6 flex flex-col cursor-pointer transition-colors hover:border-slate-500"
-            onclick="copyText('**CONTRACT RULES**\n- Requirements: 50 Cars Sold & 2 Hrs Gameplay\n- Price: Must be 80% of Buy Price\n- Car Rarity Rule: 5% Cars & Lower!\n- **WARNING**: Always record trades! Scams = Ban.')"
+            onclick="copyText('**CONTRACT RULES**\n- Requirements: 50 Cars Sold & 2 Hrs Gameplay\n- Price: Minimum price is 80% of Buy Price\n- Car Rarity Rule: 5% Cars & Lower!\n- **WARNING**: Always record trades! Scams = Ban.')"
           >
             <div
               class="flex items-center justify-between mb-4 border-b border-slate-700 pb-2"
@@ -2630,6 +2639,139 @@
             </table>
           </div>
         </div>
+      </section>
+
+      <section id="maps" class="content-tab hidden fade-in">
+        <div class="text-center mb-8">
+          <h1 class="text-3xl font-extrabold text-white">
+            Interactive <span class="text-accent">Maps</span>
+          </h1>
+          <p class="text-slate-400 text-sm">
+            Coming soon! Just trying to finish up some details and bugs!
+          </p>
+        </div>
+        <!-- <div class="text-center mb-8">
+          <h1 class="text-3xl font-extrabold text-white">
+            Interactive <span class="text-accent">Maps</span>
+          </h1>
+          <p class="text-slate-400 text-sm">
+            Click a location to copy directions or details. Click the map image
+            to copy the map itself.
+          </p>
+        </div> -->
+
+        <!-- <div class="mb-12">
+          <div class="flex items-center justify-between mb-4 px-2">
+            <h2 class="text-2xl font-bold text-white flex items-center">
+              <i class="ph-duotone ph-map-trifold text-accent mr-2"></i> Main
+              City
+            </h2>
+            <button
+              onclick="copyImage('city1-img')"
+              class="bg-slate-800 hover:bg-accent text-white px-3 py-1 rounded text-sm font-bold transition-colors border border-slate-600"
+            >
+              <i class="ph-bold ph-copy mr-1"></i> Copy Map Image
+            </button>
+          </div>
+
+          <div
+            class="relative w-full rounded-xl overflow-hidden shadow-2xl border border-slate-700 group bg-black"
+          >
+            <img
+              id="city1-img"
+              src="city1.png"
+              alt="Main City Map"
+              class="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+            />
+
+            <button
+              class="absolute top-[45%] left-[50%] w-8 h-8 -ml-4 -mt-4 bg-accent hover:bg-white text-white hover:text-accent rounded-full shadow-lg shadow-accent/50 flex items-center justify-center transition-all hover:scale-110 z-10 group/pin"
+              onclick="copyText('**General Store Location:** Located in the center roundabout of the main city.')"
+            >
+              <i class="ph-bold ph-shopping-cart"></i>
+
+              <div
+                class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-slate-900 text-white text-xs font-bold rounded whitespace-nowrap opacity-0 group-hover/pin:opacity-100 transition-opacity pointer-events-none border border-slate-600"
+              >
+                General Store
+                <div
+                  class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900"
+                ></div>
+              </div>
+            </button>
+
+            <button
+              class="absolute top-[30%] left-[25%] w-8 h-8 -ml-4 -mt-4 bg-emerald-500 hover:bg-white text-white hover:text-emerald-600 rounded-full shadow-lg shadow-emerald-500/50 flex items-center justify-center transition-all hover:scale-110 z-10 group/pin"
+              onclick="copyText('**Repair Shop:** located on the west side, look for the wrench icon on the map.')"
+            >
+              <i class="ph-bold ph-wrench"></i>
+              <div
+                class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-slate-900 text-white text-xs font-bold rounded whitespace-nowrap opacity-0 group-hover/pin:opacity-100 transition-opacity pointer-events-none border border-slate-600"
+              >
+                Repair Shop
+                <div
+                  class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900"
+                ></div>
+              </div>
+            </button>
+
+            <button
+              class="absolute top-[70%] left-[60%] w-8 h-8 -ml-4 -mt-4 bg-yellow-500 hover:bg-white text-white hover:text-yellow-600 rounded-full shadow-lg shadow-yellow-500/50 flex items-center justify-center transition-all hover:scale-110 z-10 group/pin"
+              onclick="copyText('**Gas Station:** South side of the city near the construction site.')"
+            >
+              <i class="ph-bold ph-gas-pump"></i>
+              <div
+                class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-slate-900 text-white text-xs font-bold rounded whitespace-nowrap opacity-0 group-hover/pin:opacity-100 transition-opacity pointer-events-none border border-slate-600"
+              >
+                Fuel Station
+                <div
+                  class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900"
+                ></div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="mb-12">
+          <div class="flex items-center justify-between mb-4 px-2">
+            <h2 class="text-2xl font-bold text-white flex items-center">
+              <i class="ph-duotone ph-buildings text-accent mr-2"></i> City
+              Center
+            </h2>
+            <button
+              onclick="copyImage('city2-img')"
+              class="bg-slate-800 hover:bg-accent text-white px-3 py-1 rounded text-sm font-bold transition-colors border border-slate-600"
+            >
+              <i class="ph-bold ph-copy mr-1"></i> Copy Map Image
+            </button>
+          </div>
+
+          <div
+            class="relative w-full rounded-xl overflow-hidden shadow-2xl border border-slate-700 group bg-black"
+          >
+            <img
+              id="city2-img"
+              src="city2.png"
+              alt="City Center Map"
+              class="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+            />
+
+            <button
+              class="absolute top-[40%] left-[45%] w-8 h-8 -ml-4 -mt-4 bg-purple-500 hover:bg-white text-white hover:text-purple-600 rounded-full shadow-lg shadow-purple-500/50 flex items-center justify-center transition-all hover:scale-110 z-10 group/pin"
+              onclick="copyText('**Paint Shop Location:** In the City Center. Drive into the booth to paint, or check between booths for Window Tint.')"
+            >
+              <i class="ph-bold ph-paint-brush"></i>
+              <div
+                class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-slate-900 text-white text-xs font-bold rounded whitespace-nowrap opacity-0 group-hover/pin:opacity-100 transition-opacity pointer-events-none border border-slate-600"
+              >
+                Paint Shop
+                <div
+                  class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-900"
+                ></div>
+              </div>
+            </button>
+          </div>
+        </div> -->
       </section>
 
       <footer
